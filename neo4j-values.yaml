@@ -1,0 +1,21 @@
+neo4j:
+  name: neo4j-standalone
+  password: project1phase2
+  edition: community
+
+  plugins:
+    - "graph-data-science"
+
+resources:
+  cpu: "1"
+  memory: "2Gi"
+
+service:
+  type: ClusterIP
+
+image:
+  customImage: ""
+
+volumes:
+  data:
+    mode: defaultStorageClass
