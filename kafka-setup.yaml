@@ -39,8 +39,13 @@ spec:
           value: "zookeeper-service:2181"
         - name: KAFKA_LISTENER_SECURITY_PROTOCOL_MAP
           value: "PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT"
+        # - name: KAFKA_ADVERTISED_LISTENERS
+        #   value: "PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka-service:29092"
         - name: KAFKA_ADVERTISED_LISTENERS
-          value: "PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka-service:29092"
+          value: PLAINTEXT://kafka-service.default.svc.cluster.local:9092
+          # value: PLAINTEXT://kafka-service:9092
+        - name: KAFKA_LISTENERS
+          value: PLAINTEXT://0.0.0.0:9092
         - name: KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR
           value: "1"
         - name: KAFKA_AUTO_CREATE_TOPICS_ENABLE
